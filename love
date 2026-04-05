@@ -1,0 +1,51 @@
+# Fixed Love Percentage Calculator with Love Symbols
+
+def print_love_background():
+    print("\n" + "❤️ " * 25)
+    print("💕 " * 25)
+    print("💖 " * 25)
+    print("❤️ " * 25)
+    print("💗 " * 25 + "\n")
+
+
+def love_calculator(name1, name2):
+    combined = (name1 + name2).lower().replace(" ", "")
+    love_score = sum(ord(char) for char in combined)
+    love_percentage = (love_score % 101)
+
+    if love_percentage < 30:
+        message = "Just friends... 💔"
+        emoji = "💔"
+    elif love_percentage < 50:
+        message = "There's a little spark! ✨"
+        emoji = "💓"
+    elif love_percentage < 70:
+        message = "Good chemistry! 🔥"
+        emoji = "💕"
+    elif love_percentage < 90:
+        message = "Amazing match! 💞"
+        emoji = "💖"
+    else:
+        message = "TRUE LOVE! Soulmates forever! ❤️‍🔥"
+        emoji = "❤️‍🔥"
+
+    print_love_background()
+    print(f"💖 LOVE CALCULATOR 💖".center(60))
+    print("="*60)
+    print(name1.upper() + " ❤️ " + name2.upper())
+    print("="*60)
+    print("❤️  Love Percentage : " + str(love_percentage) + "%  ❤️")
+    print(emoji + "  " + message + "  " + emoji)
+    print("="*60)
+    print_love_background()
+
+
+if __name__ == "__main__":
+    print("💕 Welcome to Romantic Love Calculator 💕\n")
+    name1 = input("Enter First Person's Name : ").strip()
+    name2 = input("Enter Second Person's Name : ").strip()
+    
+    if name1 and name2:
+        love_calculator(name1, name2)
+    else:
+        print("❌ Please enter both names!")
